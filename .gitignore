@@ -1,0 +1,12 @@
+.env
+cache/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.playwright-mcp/
+# Switzer (Fontshare, ITF Free Font License) is embedded in out/dashboard.html but
+# not redistributed as a file; `python run.py fonts` re-downloads it.
+assets/fonts/switzer-*.woff2
+# local design reference, not part of the repo
+Screenshot*.png

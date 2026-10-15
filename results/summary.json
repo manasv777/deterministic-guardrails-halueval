@@ -1,0 +1,308 @@
+{
+  "run": {
+    "n_items": 120,
+    "n_questions": 60,
+    "seed": 20261015,
+    "date": "2026-10-15",
+    "dataset": "HaluEval QA (pminervini/HaluEval, qa)",
+    "small_model": "claude-haiku-5-5",
+    "large_model": "claude-sonnet-5-5",
+    "effort": "low",
+    "max_tokens": 4096,
+    "prompt_version": "v1",
+    "prices_per_mtok": {
+      "claude-sonnet-5-5": {
+        "input": 2.0,
+        "output": 10.0
+      },
+      "claude-haiku-5-5": {
+        "input": 0.1,
+        "output": 0.5
+      }
+    },
+    "total_cost_usd": 0.2030019,
+    "dry_run": false
+  },
+  "configs": {
+    "haiku_plain": {
+      "label": "Haiku \u00b7 plain",
+      "model": "claude-haiku-5-5",
+      "mode": "plain",
+      "accuracy": 0.8916666666666667,
+      "precision": 0.9272727272727272,
+      "recall": 0.85,
+      "f1": 0.8869565217391304,
+      "false_refusal_rate": 0.06666666666666667,
+      "confusion": {
+        "tp": 51,
+        "fp": 4,
+        "tn": 56,
+        "fn": 9
+      },
+      "ci95": {
+        "accuracy": [
+          0.8333333333333334,
+          0.9416666666666667
+        ],
+        "precision": [
+          0.8596491228070176,
+          0.9814814814814815
+        ],
+        "recall": [
+          0.75,
+          0.9333333333333333
+        ],
+        "f1": [
+          0.8256599066473523,
+          0.9401960784313725
+        ],
+        "false_refusal_rate": [
+          0.016666666666666666,
+          0.13333333333333333
+        ]
+      },
+      "input_tokens": 53972,
+      "output_tokens": 9883,
+      "cost_usd": 0.010338700000000001,
+      "cost_per_100_items_usd": 0.008615583333333334,
+      "avg_latency_s": 1.00428922259307,
+      "p50_latency_s": 0.7655113955261186,
+      "unparsed_replies": 0,
+      "refusals": 0
+    },
+    "sonnet_plain": {
+      "label": "Sonnet \u00b7 plain",
+      "model": "claude-sonnet-5-5",
+      "mode": "plain",
+      "accuracy": 0.9083333333333333,
+      "precision": 0.9454545454545454,
+      "recall": 0.8666666666666667,
+      "f1": 0.9043478260869565,
+      "false_refusal_rate": 0.05,
+      "confusion": {
+        "tp": 52,
+        "fp": 3,
+        "tn": 57,
+        "fn": 8
+      },
+      "ci95": {
+        "accuracy": [
+          0.8583333333333333,
+          0.9583333333333334
+        ],
+        "precision": [
+          0.890625,
+          1.0
+        ],
+        "recall": [
+          0.7833333333333333,
+          0.95
+        ],
+        "f1": [
+          0.8495575221238938,
+          0.9565403195837978
+        ],
+        "false_refusal_rate": [
+          0.0,
+          0.11666666666666667
+        ]
+      },
+      "input_tokens": 53972,
+      "output_tokens": 6515,
+      "cost_usd": 0.173094,
+      "cost_per_100_items_usd": 0.144245,
+      "avg_latency_s": 1.2730570312754328,
+      "p50_latency_s": 1.0435725415009074,
+      "unparsed_replies": 0,
+      "refusals": 0
+    },
+    "haiku_guardrail": {
+      "label": "Haiku + guardrail",
+      "model": "claude-haiku-5-5",
+      "mode": "guardrail",
+      "accuracy": 0.9083333333333333,
+      "precision": 0.9152542372881356,
+      "recall": 0.9,
+      "f1": 0.907563025210084,
+      "false_refusal_rate": 0.08333333333333333,
+      "confusion": {
+        "tp": 54,
+        "fp": 5,
+        "tn": 55,
+        "fn": 6
+      },
+      "ci95": {
+        "accuracy": [
+          0.8581249999999999,
+          0.9583333333333334
+        ],
+        "precision": [
+          0.8461538461538461,
+          0.9669999999999997
+        ],
+        "recall": [
+          0.8333333333333334,
+          0.9666666666666667
+        ],
+        "f1": [
+          0.8521739130434782,
+          0.957983193277311
+        ],
+        "false_refusal_rate": [
+          0.03291666666666669,
+          0.16666666666666666
+        ]
+      },
+      "input_tokens": 81572,
+      "output_tokens": 22824,
+      "cost_usd": 0.019569200000000002,
+      "cost_per_100_items_usd": 0.016307666666666668,
+      "avg_latency_s": 1.3152012513038547,
+      "p50_latency_s": 1.0059612710028887,
+      "unparsed_replies": 0,
+      "refusals": 0
+    }
+  },
+  "bootstrap": {
+    "method": "cluster (question-level) percentile bootstrap",
+    "n_resamples": 1000,
+    "seed": 20261015,
+    "differences": {
+      "haiku_plain-sonnet_plain:accuracy": [
+        -0.04166666666666663,
+        0.0
+      ],
+      "haiku_plain-sonnet_plain:f1": [
+        -0.04347072986757381,
+        0.0
+      ],
+      "haiku_plain-haiku_guardrail:accuracy": [
+        -0.05833333333333335,
+        0.024999999999999915
+      ],
+      "haiku_plain-haiku_guardrail:f1": [
+        -0.06322122933909252,
+        0.01957106220775917
+      ],
+      "sonnet_plain-haiku_plain:accuracy": [
+        0.0,
+        0.04166666666666663
+      ],
+      "sonnet_plain-haiku_plain:f1": [
+        0.0,
+        0.043470729867573804
+      ],
+      "sonnet_plain-haiku_guardrail:accuracy": [
+        -0.033333333333333326,
+        0.033333333333333326
+      ],
+      "sonnet_plain-haiku_guardrail:f1": [
+        -0.03852662429974969,
+        0.02895133493817702
+      ],
+      "haiku_guardrail-haiku_plain:accuracy": [
+        -0.024999999999999915,
+        0.05833333333333335
+      ],
+      "haiku_guardrail-haiku_plain:f1": [
+        -0.019571062207759178,
+        0.06322122933909252
+      ],
+      "haiku_guardrail-sonnet_plain:accuracy": [
+        -0.033333333333333326,
+        0.033333333333333326
+      ],
+      "haiku_guardrail-sonnet_plain:f1": [
+        -0.028951334938177024,
+        0.038526624299749686
+      ]
+    }
+  },
+  "mcnemar": {
+    "haiku_guardrail_vs_haiku_plain": {
+      "a_right_b_wrong": 4,
+      "a_wrong_b_right": 2,
+      "n_discordant": 6,
+      "exact_p": 0.6875,
+      "chi2_cc": 0.16666666666666666,
+      "chi2_cc_p": 0.6830913983096086,
+      "test": "exact binomial McNemar (two-sided); chi-square with continuity correction also reported"
+    },
+    "haiku_guardrail_vs_sonnet_plain": {
+      "a_right_b_wrong": 2,
+      "a_wrong_b_right": 2,
+      "n_discordant": 4,
+      "exact_p": 1.0,
+      "chi2_cc": 0.25,
+      "chi2_cc_p": 0.6170750774519739,
+      "test": "exact binomial McNemar (two-sided); chi-square with continuity correction also reported"
+    },
+    "sonnet_plain_vs_haiku_plain": {
+      "a_right_b_wrong": 2,
+      "a_wrong_b_right": 0,
+      "n_discordant": 2,
+      "exact_p": 0.5,
+      "chi2_cc": 0.5,
+      "chi2_cc_p": 0.47950012218695337,
+      "test": "exact binomial McNemar (two-sided); chi-square with continuity correction also reported"
+    }
+  },
+  "guardrail": {
+    "overrides_total": 4,
+    "by_rule": {
+      "fabricated_span": {
+        "overrides": 0,
+        "correct_catches": 0,
+        "false_refusals": 0
+      },
+      "uncovered_key_fact": {
+        "overrides": 4,
+        "correct_catches": 3,
+        "false_refusals": 1
+      },
+      "malformed_output": {
+        "overrides": 0,
+        "correct_catches": 0,
+        "false_refusals": 0
+      }
+    },
+    "rules_fired_any": {
+      "fabricated_span": 0,
+      "uncovered_key_fact": 44,
+      "malformed_output": 0
+    },
+    "model_said_hallucinated": 55,
+    "model_verdict_differs_from_plain_haiku": 2,
+    "uncovered_fact_diagnosis": {
+      "fact_absent_from_knowledge": 0,
+      "fact_in_knowledge_but_not_cited": 4
+    },
+    "note": "An override is an item where Haiku's own verdict was 'supported' (or unparseable) and code changed it to 'hallucinated'. Each override is attributed to the first rule that fired."
+  },
+  "examples": {
+    "caught": [
+      {
+        "item_id": "q1891-H",
+        "explanation": "Plain Haiku judged this hallucinated answer as **supported**. In the guardrail config Haiku also said **supported**, and code overrode it via `uncovered_key_fact`: key fact(s) not in cited evidence: \"Doll Squad\". The key fact \"Doll Squad\" does appear in the knowledge passage, so the model simply failed to cite it."
+      },
+      {
+        "item_id": "q2251-H",
+        "explanation": "Plain Haiku judged this hallucinated answer as **supported**. In the guardrail config Haiku also said **supported**, and code overrode it via `uncovered_key_fact`: key fact(s) not in cited evidence: \"ConnectU\". The key fact \"ConnectU\" does appear in the knowledge passage, so the model simply failed to cite it."
+      },
+      {
+        "item_id": "q9284-H",
+        "explanation": "Plain Haiku judged this hallucinated answer as **supported**. In the guardrail config Haiku also said **supported**, and code overrode it via `uncovered_key_fact`: key fact(s) not in cited evidence: \"Matt Thiessen\". The key fact \"Matt Thiessen\" does appear in the knowledge passage, so the model simply failed to cite it."
+      }
+    ],
+    "false_refusals": [
+      {
+        "item_id": "q8929-R",
+        "explanation": "The gold label says this answer is **correct**, but the guardrail config rejected it. In the guardrail config Haiku also said **supported**, and code overrode it via `uncovered_key_fact`: key fact(s) not in cited evidence: \"Monaco\". The key fact \"Monaco\" does appear in the knowledge passage, so the model simply failed to cite it."
+      },
+      {
+        "item_id": "q3340-R",
+        "explanation": "The gold label says this answer is **correct**, but the guardrail config rejected it. Haiku itself returned **hallucinated** once it had to cite verbatim evidence; no code override was needed."
+      }
+    ]
+  }
+}
